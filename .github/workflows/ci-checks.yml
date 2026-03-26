@@ -18,7 +18,7 @@ jobs:
       - name: Check for huge files (over 200MB)
         run: |
           MAX=200
-          BIG=$(find . -type f -size +${MAX}M | head -n 20)
+          BIG=$(find . -path ./.git -prune -o -type f -size +${MAX}M -print | head -n 20)
           if [ -n "$BIG" ]; then
             echo "Found files larger than ${MAX}MB:"
             echo "$BIG"
