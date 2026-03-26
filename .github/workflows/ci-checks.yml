@@ -8,6 +8,7 @@ on:
 jobs:
   basic-checks:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -24,7 +25,7 @@ jobs:
             exit 1
           fi
 
-      - name: List changed Unity project version (info only)
+      - name: List Unity project version (info only)
         run: |
           if [ -f ProjectSettings/ProjectVersion.txt ]; then
             echo "Unity version:"
